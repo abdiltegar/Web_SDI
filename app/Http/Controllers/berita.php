@@ -14,7 +14,8 @@ class berita extends Controller
   }
   public function search($q)
   {
+    $berita = DB::table('berita')->get();
 
-      return view('berita');
+    return view('berita.search', ['berita' => $berita]);
   }
 }
