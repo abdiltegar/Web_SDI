@@ -1,0 +1,96 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+    html, body {
+        background-image: url(../img/brushed_alu.png);
+        color: #636b6f;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
+        height: 100vh;
+        margin: 0;
+    }
+    @media screen and (max-width: 768px) {
+      .wrap{
+        width: 100%;
+        background-color: white;
+        margin-top: 0px;
+      }
+      .menu{
+        height: 10px;
+        background-color: #7cc172;
+      }
+      .menu > a > li{
+        padding: 9px 25px;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      .wrap{
+        width:1200px;
+        background-color: white;
+        margin-top: 0px;
+      }
+    }
+    .menu{
+      float:left;
+    }
+    .menu > a > li{
+      padding: 18px 25px;
+      list-style: none;
+      float: left;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .main{
+      overflow-x: hidden;
+    }
+    .side-left > ul {
+      list-style: none;
+    }
+    .side-right > ul {
+      list-style: none;
+    }
+
+    /*hijau*/
+    .header-hijau{
+      background-color: #2ad263;
+      color: white;
+      width: 100%;
+      height: 50px;
+      top:0px;
+    }
+    .menu-hijau > a > li:hover {
+        background-color: #25b957;
+    }
+    .member-hijau{
+      background-color:#f4f7f5;
+    }
+    .main-hijau{
+      overflow-x: hidden;
+      color: #2d2d2d;
+    }
+    .side-left-hijau{
+      background-color: #2ad263;
+      /*border: 1px solid #a7d4b6;*/
+    }
+    .side-right-hijau{
+    }
+    .footer-hijau{
+      border-top: 3px solid #2ad263;
+      color: #2ad263;
+      width: 100%;
+      height: 20px;
+      text-align: left;
+    }
+
+
+
+
+    .small-thumbnail-berita{
+      max-width: 100%;
+      max-height: 100px;
+    }

@@ -14,8 +14,8 @@ class berita extends Controller
   }
   public function search($q)
   {
-    $berita = DB::table('berita')->get();
-
-    return view('berita.search', ['berita' => $berita]);
+    $db =  DB::connection()->getPdo();
+    $berita = DB::select("select * from berita where judul like '%$q%' or deskripsi like '%$q%' ");
+    return view('berita.index')->with('berita',$berita);
   }
 }
