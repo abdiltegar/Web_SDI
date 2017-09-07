@@ -31,6 +31,10 @@
         margin-top: 0px;
       }
     }
+    .jam{
+      width: 100%;
+      text-align: right;
+    }
     .menu{
       float:left;
     }
@@ -45,6 +49,17 @@
       text-decoration: none;
       text-transform: uppercase;
     }
+    .menu-admin-link{
+      padding: 18px 25px;
+      list-style: none;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: left;
+    }
     .main{
       overflow-x: hidden;
     }
@@ -54,6 +69,16 @@
     .side-right > ul {
       list-style: none;
     }
+    .content{
+      background-color: white;
+      height: auto;
+      min-height: 400px;
+    }
+    .dropdown-menu{
+      display: none;
+      position: absolute;
+      z-index:4;
+    }
 
     /*hijau*/
     .header-hijau{
@@ -62,6 +87,9 @@
       width: 100%;
       height: 50px;
       top:0px;
+    }
+    .jam-hijau{
+      color: #25b957;
     }
     .menu-hijau > a > li:hover {
         background-color: #25b957;
@@ -79,6 +107,12 @@
     }
     .side-right-hijau{
     }
+    .link-hijau:hover{
+      color: #25b957;
+    }
+    .about-hijau{
+      background-color:#f4f7f5;
+    }
     .footer-hijau{
       border-top: 3px solid #2ad263;
       color: #2ad263;
@@ -86,7 +120,19 @@
       height: 20px;
       text-align: left;
     }
-
+    .menu-admin-hijau{
+      background-color: #2ad263;
+      padding: 10px;
+      color: white;
+    }
+    .menu-admin-hijau > ul > a > li{
+      background-color: #2ad263;
+      padding: 20px;
+      color: white;
+    }
+    .menu-admin-link-hijau:hover{
+      background-color: #25b957;
+    }
 
 
 

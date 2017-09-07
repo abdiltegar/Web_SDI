@@ -13,13 +13,43 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ URL::asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('assets/font-awesome/css/font-awesome.min.css') }}">
+        <script src="{{ URL::asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+        <script>
+        <?php date_default_timezone_set('Asia/Jakarta'); ?>
+  //buat object date berdasarkan waktu di server
+  var serverTime = new Date(<?php print date('Y, m, d, H, i, s, 0'); ?>);
+  //buat object date berdasarkan waktu di client
+  var clientTime = new Date();
+  //hitung selisih
+  var Diff = serverTime.getTime() - clientTime.getTime();
+  //fungsi displayTime yang dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik
+  function displayServerTime(){
+      //buat object date berdasarkan waktu di client
+      var clientTime = new Date();
+      //buat object date dengan menghitung selisih waktu client dan server
+      var time = new Date(clientTime.getTime() + Diff);
+      //ambil nilai jam
+      var sh = time.getHours().toString();
+      //ambil nilai menit
+      var sm = time.getMinutes().toString();
+      //ambil nilai detik
+      var ss = time.getSeconds().toString();
+      //tampilkan jam:menit:detik dengan menambahkan angka 0 jika angkanya cuma satu digit (0-9)
+      document.getElementById("clock").innerHTML = (sh.length==1?"0"+sh:sh) + ":" + (sm.length==1?"0"+sm:sm) + ":" + (ss.length==1?"0"+ss:ss);
+  }
+</script>
     </head>
-    <body>
+    <body onload="setInterval('displayServerTime()', 1000);">
+
       <center>
         <div class="wrap ">
+          <div class="jam jam-hijau"><?php echo date("D, d-F-Y")." &nbsp | server time " ?><span id="clock"><?php print date('H:i:s'); ?></span></div>
+          <br>
             <div class="header">
               <div class="title">
-                <h1>Title</h1>
+                <h1>SD Islam Lumajang</h1>
               </div>
             </div>
             <!-- @if (Route::has('login'))
@@ -45,15 +75,17 @@
                     <h5 style="color:white;">Profil Sekolah</h5>
                     <div class="member-hijau col-sm-12" style="padding:5px 0px;">
                       <ul style="list-style:none;text-align:left;padding-left:10px;">
-                        <li>Sejarah</li>
+                        <li><a href="#" class="link-hijau">Sejarah</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Visi & Misi</li>
+                        <li><a href="#" class="link-hijau">Identitas Sekolah</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Struktur Organisasi</li>
+                        <li><a href="#" class="link-hijau">Visi & Misi</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Dokumen</li>
+                        <li><a href="#" class="link-hijau">Struktur Organisasi</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Prestasi Sekolah</li>
+                        <li><a href="#" class="link-hijau">Dokumen</a></li>
+                        <hr style="margin-bottom:10px;margin-top:0px;">
+                        <li><a href="#" class="link-hijau">Prestasi Sekolah</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
                       </ul>
                     </div>
@@ -67,21 +99,21 @@
                     <h5 style="color:white;">Sarana Prasarana Sekolah</h5>
                     <div class="member-hijau col-sm-12" style="padding:5px 0px;">
                       <ul style="list-style:none;text-align:left;padding-left:10px;">
-                        <li>Lapangan Parkir</li>
+                        <li><a href="#" class="link-hijau">Lapangan Parkir</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Lapangan Olahraga</li>
+                        <li><a href="#" class="link-hijau">Lapangan Olahraga</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Ruang Kelas</li>
+                        <li><a href="#" class="link-hijau">Ruang Kelas</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Ruang Guru</li>
+                        <li><a href="#" class="link-hijau">Ruang Guru</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Lapangan Upacara</li>
+                        <li><a href="#" class="link-hijau">Lapangan Upacara</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Ruang UKS</li>
+                        <li><a href="#" class="link-hijau">Ruang UKS</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Ruang Perpustakaan</li>
+                        <li><a href="#" class="link-hijau">Ruang Perpustakaan</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
-                        <li>Musholla</li>
+                        <li><a href="#" class="link-hijau">Musholla</a></li>
                         <hr style="margin-bottom:10px;margin-top:0px;">
                       </ul>
                     </div>
@@ -236,9 +268,43 @@
                 </div>
               </div>
             </div>
+            <div class="about-hijau col-sm-12" style="padding:20px;">
+              <div class="col-sm-8">
+
+                <div id="googleMap" style="width:100%;height:400px;"></div>
+
+                <script>
+                function myMap() {
+                  var mapProp= {
+                    center:new google.maps.LatLng(-8.1327774,113.2197564),
+                    zoom:17,
+                  };
+                  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                }
+                </script>
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB6QPmMGy3PMQPzx35jdy8RWyxcS6Lz4k&callback=myMap"></script>
+              </div>
+              <div class="col-sm-4">
+                <h4>Contact</h4>
+                <ul style="list-style:none;">
+                  <li>Alamat : Jl.</li>
+                  <li>No. Tlp: +62 85 888 888 888</li>
+                  <li>email : email@email.com</li>
+                  <li>
+                    <br><br>
+                      social media :<br>
+                      <a href="#" style="color:#2e4cec;"><span><i class="fa fa-facebook"></i></a></span></a>
+                      <a href="#" style="color:#3a95f4;"><span><i class="fa fa-twitter"></i></a>
+                      <a href="#" style="color:#f73838;"><span><i class="fa fa-google-plus"></i></a>
+                      <!-- <a href="#"><span><i class="fa fa-facebook"></i></a> -->
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div class="col-sm-12 footer-hijau">
               &copy; 2017 copyright SDI. All Rights reserved.
-              <p style="float:right;">Develop by. Abdil Tegar Arifin (Lumajang Developer) - Design by. Abdil Tegar Arifin (Lumajang Developer)</p>
+              <p style="float:right;">Develop by. Abdil Tegar Arifin - Design by. Abdil Tegar Arifin</p>
             </div>
         </div>
       </center>
